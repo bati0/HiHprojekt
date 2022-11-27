@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <hipertext xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-           xsi:noNamespaceSchemaLocation="HH.xsd">
+           xsi:noNamespaceSchemaLocation="HiH.xsd">
     <hobby>
         <title>Fotografia</title>
         <description>
@@ -12,30 +12,116 @@
             <type>
                 <name>reportażowa</name>
                 <description>
-                    Zdjęcia
+                    Zdjęcia mające na celu uchwycenia atmosfery i tego co się działo na publicznym wydarzeniu
                 </description>
+                <example n="1">
+                    <img src="img/repo.jpg">Autorskie zdjęcie z festiwalu muzycznego Spokój</img>
+                    <metadata modyfied="yes">
+                        <camera>
+                            <brand>Fujifilm</brand>
+                            <model>XT-2</model>
+                            <lens type="zoom">
+                                <brand>Fujinon</brand>
+                                <focal used="33mm">18-55mm</focal>
+                                <aparature used="f/2.0">f/1.8-5.5</aparature>
+                            </lens>
+                        </camera>
+                        <software version="22 Windows">captureOne</software>
+                        <software used="yes">Topaz DeNoiseAI</software>
+                    </metadata>
+                    <link source="https://www.facebook.com/SpokojFestiwal">Spokój Festiwal</link>
+                </example>
+                <example n="2">
+                    <img src="img/repo2.jpg">Autorskie zdjęcie z festiwalu muzycznego Spokój</img>
+                    <metadata modyfied="yes">
+                        <camera>
+                            <brand>Fujifilm</brand>
+                            <model>XT-2</model>
+                            <lens type="zoom">
+                                <brand>Fujinon</brand>
+                                <focal used="29mm">18-55mm</focal>
+                                <aparature used="f/5.0">f/1.8-5.5</aparature>
+                            </lens>
+                        </camera>
+                        <software version="22 Windows">captureOne</software>
+                        <software used="yes">Topaz DeNoiseAI</software>
+                    </metadata>
+                    <link source="https://www.facebook.com/SpokojFestiwal">Spokój Festiwal</link>
+                </example>
             </type>
             <type>
                 <name>krajobrazowa</name>
                 <description>
                     Wykonywanie zdjęć w naturze, naturze
                 </description>
+                <example n="1">
+                    <img src="img/krajobraz.jpg">Autorskie zdjęcie z Norwegii, Lofotów</img>
+                    <metadata modyfied="yes">
+                        <camera>
+                            <brand>Fujifilm</brand>
+                            <model>XT-2</model>
+                            <lens type="zoom">
+                                <brand>Fujinon</brand>
+                                <focal used="55mm">18-55mm</focal>
+                                <aparature used="f/11">f/1.8-5.5</aparature>
+                            </lens>
+                        </camera>
+                        <software version="22 Windows">captureOne</software>
+                        <software used="no">Topaz DeNoiseAI</software>
+                    </metadata>
+                    <link source="https://www.68north.com/lofoten-hikes/hiking-horseid-beach/">Miejsce wykonania zdjęć</link>
+                </example>
+                <example n="2">
+                    <img src="img/krajobraz2.jpg">Autorskie zdjęcie z Norwegii, Lofotów</img>
+                    <metadata modyfied="yes">
+                        <camera>
+                            <brand>Fujifilm</brand>
+                            <model>XT-2</model>
+                            <lens type="zoom">
+                                <brand>Fujinon</brand>
+                                <focal used="18mm">18-55mm</focal>
+                                <aparature used="f/11">f/1.8-5.5</aparature>
+                            </lens>
+                        </camera>
+                        <software version="22 Windows">captureOne</software>
+                        <software used="no">Topaz DeNoiseAI</software>
+                    </metadata>
+                    <link source="https://www.68north.com/lofoten-hikes/hiking-horseid-beach/">Miejsce wykonania zdjęć</link>
+                </example>
             </type>
             <type>
                 <name>portretowa</name>
                 <description>
                     Wykonywanie portretów
                 </description>
-            </type>
-            <type>
-
+                <example n="1">
+                    <img src="img/portret.jpg">Portret osoby na widowni</img>
+                    <metadata modyfied="yes">
+                        <camera>
+                            <brand>Fujifilm</brand>
+                            <model>XT-2</model>
+                            <lens type="zoom">
+                                <brand>Fujinon</brand>
+                                <focal used="34mm">18-55mm</focal>
+                                <aparature used="f/5.0">f/1.8-5.5</aparature>
+                            </lens>
+                            <flash>
+                                <brand>Quadralight</brand>
+                                <model>Stroboss 36</model>
+                            </flash>
+                        </camera>
+                        <software version="22 Windows">captureOne</software>
+                        <software used="no">Topaz DeNoiseAI</software>
+                    </metadata>
+                    <link source="https://www.facebook.com/GreenClubGdansk">Pan z publiczności na "standupie" w Green Clubie</link>
+                </example>
             </type>
         </categories>
     </hobby>
-    <author>
+    <author sex="male">
         <name>Bartosz</name>
         <surname>Mielewczyk</surname>
-        <indexNr>1993313</indexNr>
+        <indexNr>193313</indexNr>
     </author>
 
 </hipertext>

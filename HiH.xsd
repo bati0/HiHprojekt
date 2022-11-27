@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="hipertext" type="hipertextType"/>
+  <xs:complexType name="imgType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="src" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="focalType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="used" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="aparatureType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="used" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="lensType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="brand"/>
+      <xs:element type="focalType" name="focal"/>
+      <xs:element type="aparatureType" name="aparature"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="type" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="cameraType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="brand"/>
+      <xs:element type="xs:string" name="model"/>
+      <xs:element type="lensType" name="lens"/>
+      <xs:element type="flashType" name="flash" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="softwareType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="version" use="optional"/>
+        <xs:attribute type="xs:string" name="used" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="metadataType">
+    <xs:sequence>
+      <xs:element type="cameraType" name="camera"/>
+      <xs:element type="softwareType" name="software" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="modyfied" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="linkType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="source" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="exampleType">
+    <xs:sequence>
+      <xs:element type="imgType" name="img"/>
+      <xs:element type="metadataType" name="metadata"/>
+      <xs:element type="linkType" name="link"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="n" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="typeType">
+    <xs:sequence>
+      <xs:element name="name">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="reportażowa"/>
+            <xs:enumeration value="krajobrazowa"/>
+            <xs:enumeration value="portretowa"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="description">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="
+                    Zdjęcia mające na celu uchwycenia atmosfery i tego co się działo na publicznym wydarzeniu
+                "/>
+            <xs:enumeration value="
+                    Wykonywanie zdjęć w naturze, naturze
+                "/>
+            <xs:enumeration value="
+                    Wykonywanie portretów
+                "/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="exampleType" name="example" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="flashType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="brand"/>
+      <xs:element type="xs:string" name="model"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="categoriesType">
+    <xs:sequence>
+      <xs:element type="typeType" name="type" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="hobbyType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="title"/>
+      <xs:element type="xs:string" name="description"/>
+      <xs:element type="categoriesType" name="categories"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="authorType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="name"/>
+      <xs:element type="xs:string" name="surname"/>
+      <xs:element type="xs:string" name="indexNr"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="sex"/>
+  </xs:complexType>
+  <xs:complexType name="hipertextType">
+    <xs:sequence>
+      <xs:element type="hobbyType" name="hobby"/>
+      <xs:element type="authorType" name="author"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
