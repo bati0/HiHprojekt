@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hipertext xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:noNamespaceSchemaLocation="HH.xsd">
+    <hobby>
+        <title>Fotografia</title>
+        <description>
+            Fotografia to połączenie dziedzin techniki i sztuki. Z technicznego punktu widzenia,
+            fotografia to utrwalenie widoki przy pomocy światła. Zdjęcia fotograficzne mogą być narzędziem do
+            wywierania pewnych uczuć, więc fotografia może się zaliczać do dziedziny sztuki.
+        </description>
+        <categories>
+            <type>
+                <name>reportażowa</name>
+                <description>
+                    Zdjęcia
+                </description>
+            </type>
+            <type>
+                <name>krajobrazowa</name>
+                <description>
+                    Wykonywanie zdjęć w naturze, naturze
+                </description>
+            </type>
+            <type>
+                <name>portretowa</name>
+                <description>
+                    Wykonywanie portretów
+                </description>
+            </type>
+            <type>
+
+            </type>
+        </categories>
+    </hobby>
+    <author>
+        <name>Bartosz</name>
+        <surname>Mielewczyk</surname>
+        <indexNr>1993313</indexNr>
+    </author>
+
+</hipertext>
