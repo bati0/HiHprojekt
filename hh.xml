@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<hipertext xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-           xsi:noNamespaceSchemaLocation="HiH.xsd">
-    <hobby>
+<hobby xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="hh.xsd">
+    <about>
         <title>Fotografia</title>
         <description>
             Fotografia to połączenie dziedzin techniki i sztuki. Z technicznego punktu widzenia,
             fotografia to utrwalenie widoki przy pomocy światła. Zdjęcia fotograficzne mogą być narzędziem do
             wywierania pewnych uczuć, więc fotografia może się zaliczać do dziedziny sztuki.
         </description>
-        <categories>
+    </about>
+        <photography>
             <type>
                 <name>reportażowa</name>
                 <description>
@@ -16,35 +17,35 @@
                 </description>
                 <example n="1">
                     <img src="img/repo.jpg">Autorskie zdjęcie z festiwalu muzycznego Spokój</img>
-                    <metadata modyfied="yes">
+                    <metadata modified="true">
                         <camera>
                             <brand>Fujifilm</brand>
                             <model>XT-2</model>
                             <lens type="zoom">
                                 <brand>Fujinon</brand>
-                                <focal used="33mm">18-55mm</focal>
+                                <focal>18-55mm</focal>
                                 <aparature used="f/2.0">f/1.8-5.5</aparature>
                             </lens>
                         </camera>
-                        <software version="22 Windows">captureOne</software>
-                        <software used="yes">Topaz DeNoiseAI</software>
+                        <software used="true" version="22 Windows">captureOne</software>
+                        <software used="true">Topaz DeNoiseAI</software>
                     </metadata>
                     <link source="https://www.facebook.com/SpokojFestiwal">Spokój Festiwal</link>
                 </example>
                 <example n="2">
                     <img src="img/repo2.jpg">Autorskie zdjęcie z festiwalu muzycznego Spokój</img>
-                    <metadata modyfied="yes">
+                    <metadata modified="true">
                         <camera>
                             <brand>Fujifilm</brand>
                             <model>XT-2</model>
-                            <lens type="zoom">
-                                <brand>Fujinon</brand>
-                                <focal used="29mm">18-55mm</focal>
-                                <aparature used="f/5.0">f/1.8-5.5</aparature>
+                            <lens type="prime">
+                                <brand>MinoltaMD</brand>
+                                <focal>50</focal>
+                                <aparature used="f/5.0">f/1.8</aparature>
                             </lens>
                         </camera>
-                        <software version="22 Windows">captureOne</software>
-                        <software used="yes">Topaz DeNoiseAI</software>
+                        <software used="true" version="22 Windows">captureOne</software>
+                        <software used="true">Topaz DeNoiseAI</software>
                     </metadata>
                     <link source="https://www.facebook.com/SpokojFestiwal">Spokój Festiwal</link>
                 </example>
@@ -56,35 +57,35 @@
                 </description>
                 <example n="1">
                     <img src="img/krajobraz.jpg">Autorskie zdjęcie z Norwegii, Lofotów</img>
-                    <metadata modyfied="yes">
+                    <metadata modified="true">
                         <camera>
                             <brand>Fujifilm</brand>
                             <model>XT-2</model>
                             <lens type="zoom">
                                 <brand>Fujinon</brand>
-                                <focal used="55mm">18-55mm</focal>
+                                <focal>18-55mm</focal>
                                 <aparature used="f/11">f/1.8-5.5</aparature>
                             </lens>
                         </camera>
-                        <software version="22 Windows">captureOne</software>
-                        <software used="no">Topaz DeNoiseAI</software>
+                        <software used="true" version="22 Windows">captureOne</software>
+                        <software used="false">Topaz DeNoiseAI</software>
                     </metadata>
                     <link source="https://www.68north.com/lofoten-hikes/hiking-horseid-beach/">Miejsce wykonania zdjęć</link>
                 </example>
                 <example n="2">
                     <img src="img/krajobraz2.jpg">Autorskie zdjęcie z Norwegii, Lofotów</img>
-                    <metadata modyfied="yes">
+                    <metadata modified="true">
                         <camera>
                             <brand>Fujifilm</brand>
                             <model>XT-2</model>
                             <lens type="zoom">
                                 <brand>Fujinon</brand>
-                                <focal used="18mm">18-55mm</focal>
+                                <focal>18-55mm</focal>
                                 <aparature used="f/11">f/1.8-5.5</aparature>
                             </lens>
                         </camera>
-                        <software version="22 Windows">captureOne</software>
-                        <software used="no">Topaz DeNoiseAI</software>
+                        <software used="true" version="22 Windows">captureOne</software>
+                        <software used="false">Topaz DeNoiseAI</software>
                     </metadata>
                     <link source="https://www.68north.com/lofoten-hikes/hiking-horseid-beach/">Miejsce wykonania zdjęć</link>
                 </example>
@@ -96,13 +97,13 @@
                 </description>
                 <example n="1">
                     <img src="img/portret.jpg">Portret osoby na widowni</img>
-                    <metadata modyfied="yes">
+                    <metadata modified="true">
                         <camera>
                             <brand>Fujifilm</brand>
                             <model>XT-2</model>
                             <lens type="zoom">
                                 <brand>Fujinon</brand>
-                                <focal used="34mm">18-55mm</focal>
+                                <focal>18-55mm</focal>
                                 <aparature used="f/5.0">f/1.8-5.5</aparature>
                             </lens>
                             <flash>
@@ -110,18 +111,18 @@
                                 <model>Stroboss 36</model>
                             </flash>
                         </camera>
-                        <software version="22 Windows">captureOne</software>
-                        <software used="no">Topaz DeNoiseAI</software>
+                        <software used="true" version="22 Windows">captureOne</software>
+                        <software used="false">Topaz DeNoiseAI</software>
                     </metadata>
                     <link source="https://www.facebook.com/GreenClubGdansk">Pan z publiczności na "standupie" w Green Clubie</link>
                 </example>
             </type>
-        </categories>
-    </hobby>
+        </photography>
     <author sex="male">
-        <name>Bartosz</name>
+        Autorem pliku jest <name>Bartosz</name>
         <surname>Mielewczyk</surname>
-        <indexNr>193313</indexNr>
+         o numerze indeksu <StudentIndexNum>193313</StudentIndexNum>
+        Jego szcześliwe liczby to <numbers>7 13 18</numbers>
     </author>
 
-</hipertext>
+</hobby>

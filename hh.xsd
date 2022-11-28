@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xs:schema [
+        <!ELEMENT xs:schema (xs:element|xs:complexType|xs:simpleType|xs:attribute|xs:attributeGroup)*>
+        <!ATTLIST xs:schema
+                attributeFormDefault CDATA #REQUIRED
+                elementFormDefault CDATA #REQUIRED
+                xmlns:xs CDATA #REQUIRED>
+        <!ELEMENT xs:element (xs:simpleType)*>
+        <!ATTLIST xs:element
+                maxOccurs CDATA #IMPLIED
+                minOccurs CDATA #IMPLIED
+                name CDATA #IMPLIED
+                ref CDATA #IMPLIED
+                type CDATA #IMPLIED>
+        <!ELEMENT xs:complexType (xs:sequence|xs:attribute|xs:simpleContent|xs:choice|xs:all)*>
+        <!ATTLIST xs:complexType
+                mixed CDATA #IMPLIED
+                name CDATA #REQUIRED>
+        <!ELEMENT xs:sequence (xs:element)*>
+        <!ELEMENT xs:attribute (xs:simpleType)*>
+        <!ATTLIST xs:attribute
+                name CDATA #IMPLIED
+                ref CDATA #IMPLIED
+                type CDATA #IMPLIED
+                use CDATA #IMPLIED>
+        <!ELEMENT xs:simpleType (xs:restriction|xs:union|xs:list)*>
+        <!ATTLIST xs:simpleType
+                name CDATA #IMPLIED>
+        <!ELEMENT xs:restriction (xs:enumeration|xs:pattern|xs:simpleType|xs:minInclusive|xs:maxExclusive|xs:length|xs:minLength|xs:maxLength)*>
+        <!ATTLIST xs:restriction
+                base CDATA #IMPLIED>
+        <!ELEMENT xs:enumeration (#PCDATA)>
+        <!ATTLIST xs:enumeration
+                value CDATA #REQUIRED>
+        <!ELEMENT xs:pattern (#PCDATA)>
+        <!ATTLIST xs:pattern
+                value CDATA #REQUIRED>
+        <!ELEMENT xs:simpleContent (xs:extension)*>
+        <!ELEMENT xs:extension (xs:attribute|xs:attributeGroup)*>
+        <!ATTLIST xs:extension
+                base CDATA #REQUIRED>
+        <!ELEMENT xs:union (#PCDATA)>
+        <!ATTLIST xs:union
+                memberTypes CDATA #REQUIRED>
+        <!ELEMENT xs:attributeGroup (xs:attribute)*>
+        <!ATTLIST xs:attributeGroup
+                name CDATA #IMPLIED
+                ref CDATA #IMPLIED>
+        <!ELEMENT xs:choice (xs:element)*>
+        <!ATTLIST xs:choice
+                maxOccurs CDATA #REQUIRED
+                minOccurs CDATA #REQUIRED>
+        <!ELEMENT xs:all (xs:element)*>
+        <!ELEMENT xs:list (xs:simpleType)*>
+        <!ELEMENT xs:minInclusive (#PCDATA)>
+        <!ATTLIST xs:minInclusive
+                value CDATA #REQUIRED>
+        <!ELEMENT xs:maxExclusive (#PCDATA)>
+        <!ATTLIST xs:maxExclusive
+                value CDATA #REQUIRED>
+        <!ELEMENT xs:length (#PCDATA)>
+        <!ATTLIST xs:length
+                value CDATA #REQUIRED>
+        <!ELEMENT xs:minLength (#PCDATA)>
+        <!ATTLIST xs:minLength
+                value CDATA #REQUIRED>
+        <!ELEMENT xs:maxLength (#PCDATA)>
+        <!ATTLIST xs:maxLength
+                value CDATA #REQUIRED>
+        ]>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  
+  <xs:element name="hobby" type="hobbyType"/>
+
+  <xs:complexType name="hobbyType">
+    <xs:sequence>
+      <xs:element type="aboutType" name="about"/>
+      <xs:element type="categoriesType" name="photography"/>
+      <xs:element type="authorType" name="author"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="aboutType">
+    <xs:sequence>
+      <xs:element name="title" type="shortStringType"/>
+      <xs:element name="description" type="descriptionType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="categoriesType">
+    <xs:sequence>
+      <xs:element type="typeType" name="type" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="exampleType">
+    <xs:sequence>
+      <xs:element ref="img" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element type="metadataType" name="metadata"/>
+      <xs:element ref="link" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute type="xs:int" name="n" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="typeType">
+    <xs:sequence>
+      <xs:element name="name">
+        <xs:simpleType>
+          <xs:restriction base="shortStringType">
+            <xs:enumeration value="reportażowa"/>
+            <xs:enumeration value="krajobrazowa"/>
+            <xs:enumeration value="portretowa"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="description" type="descriptionType"/>
+      <xs:element type="exampleType" name="example" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:simpleType name="focalWithmm">
+    <xs:restriction base="shortStringType">
+      <xs:pattern value="[0-9]+-?[0-9]+mm"/>
+      <xs:pattern value="[0-9]+mm"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="focalWithoutmm">
+    <xs:restriction base="shortStringType">
+      <xs:pattern value="[0-9]+-?[0-9]+"/>
+      <xs:pattern value="[0-9]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  
+  <xs:complexType name="aparatureType">
+    <xs:simpleContent>
+      <xs:extension base="shortStringType">
+        <xs:attribute name="used" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  
+  <xs:complexType name="lensType">
+    <xs:sequence>
+      <xs:element type="brandType" name="brand"/>
+      <xs:element name="focal">
+        <xs:simpleType>
+          <xs:union memberTypes="focalWithmm focalWithoutmm"/>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="aparatureType" name="aparature"/>
+    </xs:sequence>
+    <xs:attribute  name="type" use="required">
+      <xs:simpleType>
+        <xs:restriction base="shortStringType">
+          <xs:enumeration value="zoom"/>
+          <xs:enumeration value="prime"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  
+  <xs:complexType name="cameraType">
+    <xs:sequence>
+      <xs:element type="brandType" name="brand"/>
+      <xs:element type="shortStringType" name="model"/>
+      <xs:element type="lensType" name="lens"/>
+      <xs:element type="flashType" name="flash" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="softwareType">
+    <xs:simpleContent>
+      <xs:extension base="shortStringType">
+        <xs:attributeGroup ref="softwareAttrib"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  
+  <xs:complexType name="metadataType">
+    <xs:choice maxOccurs="unbounded" minOccurs="0">
+      <xs:element type="cameraType" name="camera"/>
+      <xs:element type="softwareType" name="software"/>
+    </xs:choice>
+    <xs:attribute type="xs:string" name="modified" use="optional"/>
+  </xs:complexType>
+  
+  
+  <xs:complexType name="flashType">
+    <xs:sequence>
+      <xs:element type="brandType" name="brand"/>
+      <xs:element type="shortStringType" name="model"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  
+  
+  <xs:complexType name="authorType" mixed="true">
+    <xs:all>
+      <xs:element type="xs:string" name="name"/>
+      <xs:element type="xs:string" name="surname"/>
+      <xs:element type="xs:string" name="StudentIndexNum"/>
+      <xs:element type="numbersListType" name="numbers"/>
+    </xs:all>
+    <xs:attribute type="xs:string" name="sex"/>
+  </xs:complexType>
+
+  <xs:simpleType name="numbersListType">
+    <xs:restriction>
+      <xs:simpleType>
+        <xs:list>
+          <xs:simpleType>
+            <xs:restriction base="xs:integer">
+              <xs:minInclusive value="1" />
+              <xs:maxExclusive value="100" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:list>
+      </xs:simpleType>
+      <xs:length value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+
+  
+  <xs:simpleType name="brandType">
+    <xs:restriction base="shortStringType">
+      <xs:pattern value="([a-zA-Z]+)"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="descriptionType">
+    <xs:restriction base="xs:token">
+      <xs:minLength value="10"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="shortStringType">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="30"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="longStringType">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0"/>
+      <xs:maxLength value="70"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="longLongStringType">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0"/>
+      <xs:maxLength value="140"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  
+
+  <xs:complexType name="adressLinkType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="source" type="xs:anyURI" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="adressImgType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="src" type="xs:anyURI" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  
+  
+  
+  <xs:element name="img" type="adressImgType" />
+  <xs:element name="link" type="adressLinkType" />
+  
+  <xs:attribute name="version">
+    <xs:simpleType>
+      <xs:restriction base="shortStringType">
+        <xs:enumeration value="22 Windows"/>
+        <xs:enumeration value="21 Windows"/>
+        <xs:enumeration value="22 MacOSX"/>
+        <xs:enumeration value="21 MacOSX"/> 
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+  
+  <xs:attributeGroup name="softwareAttrib">
+    <xs:attribute ref="version"/>
+    <xs:attribute name="used" type="xs:boolean"/> 
+  </xs:attributeGroup>
+  
+  
+  
+  
+</xs:schema>
