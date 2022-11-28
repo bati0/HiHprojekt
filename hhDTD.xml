@@ -1,6 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
-<hobby xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:noNamespaceSchemaLocation="hh.xsd">
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+
+<!DOCTYPE hobby SYSTEM "hobby.dtd">
+
+<hobby>
     <about>
         <title>Fotografia</title>
         <description>

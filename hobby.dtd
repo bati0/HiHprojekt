@@ -1,12 +1,11 @@
 ﻿<!ELEMENT hobby (about|photography|author)*>
-        <!ATTLIST hobby
-                xmlns:xsi CDATA #REQUIRED
-                xsi:noNamespaceSchemaLocation CDATA #REQUIRED>
-        <!ELEMENT about (title|description)*>
+                
+        
+        <!ELEMENT about (title,description)*>
         <!ELEMENT title (#PCDATA)>
         <!ELEMENT description (#PCDATA)>
         <!ELEMENT photography (type)*>
-        <!ELEMENT type (name|description|example)*>
+        <!ELEMENT type (name,description,example*)>
         <!ELEMENT name (#PCDATA)>
         <!ELEMENT example (img|metadata|link)*>
         <!ATTLIST example
@@ -16,8 +15,9 @@
                 src CDATA #REQUIRED>
         <!ELEMENT metadata (camera|software)*>
         <!ATTLIST metadata
-                modified CDATA #REQUIRED>
-        <!ELEMENT camera (brand|model|lens|flash)*>
+                modified CDATA "false">
+        <!ENTITY % product "brand,model">
+        <!ELEMENT camera (%product;,lens,flash*)>
         <!ELEMENT brand (#PCDATA)>
         <!ELEMENT model (#PCDATA)>
         <!ELEMENT lens (brand|focal|aparature)*>
@@ -34,10 +34,12 @@
         <!ELEMENT link (#PCDATA)>
         <!ATTLIST link
                 source CDATA #REQUIRED>
-        <!ELEMENT flash (brand|model)*>
-        <!ELEMENT author (name|surname|StudentIndexNum|numbers)*>
+        <!ELEMENT flash (%product;)*>
+        <!ELEMENT author (#PCDATA|name|surname|StudentIndexNum|numbers)*>
         <!ATTLIST author
                 sex CDATA #REQUIRED>
         <!ELEMENT surname (#PCDATA)>
         <!ELEMENT StudentIndexNum (#PCDATA)>
         <!ELEMENT numbers (#PCDATA)>
+
+        
