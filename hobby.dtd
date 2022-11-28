@@ -1,0 +1,43 @@
+﻿<!ELEMENT hobby (about|photography|author)*>
+        <!ATTLIST hobby
+                xmlns:xsi CDATA #REQUIRED
+                xsi:noNamespaceSchemaLocation CDATA #REQUIRED>
+        <!ELEMENT about (title|description)*>
+        <!ELEMENT title (#PCDATA)>
+        <!ELEMENT description (#PCDATA)>
+        <!ELEMENT photography (type)*>
+        <!ELEMENT type (name|description|example)*>
+        <!ELEMENT name (#PCDATA)>
+        <!ELEMENT example (img|metadata|link)*>
+        <!ATTLIST example
+                n CDATA #REQUIRED>
+        <!ELEMENT img (#PCDATA)>
+        <!ATTLIST img
+                src CDATA #REQUIRED>
+        <!ELEMENT metadata (camera|software)*>
+        <!ATTLIST metadata
+                modified CDATA #REQUIRED>
+        <!ELEMENT camera (brand|model|lens|flash)*>
+        <!ELEMENT brand (#PCDATA)>
+        <!ELEMENT model (#PCDATA)>
+        <!ELEMENT lens (brand|focal|aparature)*>
+        <!ATTLIST lens
+                type (zoom|prime) #REQUIRED>
+        <!ELEMENT focal (#PCDATA)>
+        <!ELEMENT aparature (#PCDATA)>
+        <!ATTLIST aparature
+                used CDATA #REQUIRED>
+        <!ELEMENT software (#PCDATA)>
+        <!ATTLIST software
+                used CDATA #REQUIRED
+                version CDATA #IMPLIED>
+        <!ELEMENT link (#PCDATA)>
+        <!ATTLIST link
+                source CDATA #REQUIRED>
+        <!ELEMENT flash (brand|model)*>
+        <!ELEMENT author (name|surname|StudentIndexNum|numbers)*>
+        <!ATTLIST author
+                sex CDATA #REQUIRED>
+        <!ELEMENT surname (#PCDATA)>
+        <!ELEMENT StudentIndexNum (#PCDATA)>
+        <!ELEMENT numbers (#PCDATA)>
